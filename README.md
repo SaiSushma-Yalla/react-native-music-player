@@ -1,43 +1,88 @@
- React Native Music Player App
- Project Overview
+ 1. Music Player App – React Native (Expo + TypeScript)
+ 2.Overview
 
-This is a simple React Native music player application built using Expo.
-The app displays a list of songs and allows the user to play, pause.
+ This project is a music player application built using React Native (Expo) with TypeScript.
+ The goal of the assignment was to demonstrate audio playback handling, state synchronization, and application architecture rather than UI completeness.
 
-This project was developed as part of an  assignment to understand:
+ The app showcases a working end-to-end player flow under tight time constraints.
 
-React Native fundamentals
+ 3.Tech Stack
 
-State management
+ React Native (Expo)
 
-Audio playback in mobile apps
+ TypeScript
 
-Features
+ React Navigation v6
 
-List of songs displayed on the home screen
+ Zustand (global state management)
 
-Tap on a song to play it
+ Expo AV (audio playback)
 
-Play / Pause functionality
+ 4.Implemented Features
 
-Simple and clean UI
+ Home screen displaying a list of songs
 
-Works on Android using Expo
+ Audio playback with play / pause
 
-🛠 Tech Stack
+ Player screen synced with playback state
 
-React Native
+ Centralized player state using Zustand
 
-Expo
+ Stable playback without crashes
 
-TypeScript
+ 5.Search Functionality (Note)
 
-Zustand (for global state management)
+ Search functionality was implemented during development but was disabled in the final submission due to instability introduced close to the deadline.
+ The final build prioritizes stable playback and application flow over feature completeness.
 
-expo-av (for audio playback)
+ 6.API & Audio Implementation Note (Important)
 
- Project Structure
-music-player/
+ The assignment initially targeted the JioSaavn API. During development, multiple third-party music APIs (including Saavn and Jamendo) were explored.
+ Due to reliability issues with audio URLs and the limited time window, a placeholder public MP3 source was used in the final build to validate and demonstrate
+
+ 7.Audio playback lifecycle
+
+ Player state management
+
+ Screen synchronization logic
+
+ The metadata structure follows a Saavn-like schema, and the API layer is isolated, making it straightforward to replace the placeholder audio source with Saavn streams once stable.
+
+ This trade-off was made intentionally to ensure a working, evaluatable application rather than a broken or incomplete submission.
+
+ 8.Architecture Notes
+
+ API/data logic is separated from UI components
+
+ Global player state (current song, playback status) is managed using Zustand
+
+ Audio logic is decoupled from UI rendering to avoid playback interruptions
+
+ Screens subscribe to shared state to remain in sync
+
+ 9.Limitations
+
+ Placeholder audio source used instead of Saavn streams
+
+ Search functionality disabled in final build
+
+ Queue management and mini player persistence not completed
+
+ 10.Future Improvements
+
+ Full JioSaavn API integration once stable
+
+ Re-enable search with debounced API calls
+
+ Queue management with persistence
+
+ Mini player UX improvements
+
+ Background playback enhancements
+
+ 11. Project Structure
+
+ music-player/
 │
 ├── src/
 │   ├── api/
@@ -54,58 +99,52 @@ music-player/
 ├── package.json
 └── README.md
 
- Music Source
+ 12.How the App Works
 
-Songs are fetched from a custom music API file (musicApi.ts) which returns a list of song objects containing:
+ Home screen loads the list of songs
 
-Song name
+ User taps on any song to play it
 
-Artist name
+ Tapping the same song again pauses playback
 
-This approach was used to keep the app simple and stable for assignment submission.
+ Audio state is managed using Zustand store
 
- How the App Works
+ 13.How to Run the Project
 
-Home screen loads the list of songs
+ Prerequisites
 
-User taps on any song to play it
+ Node.js (v18+)
 
-Tapping the same song again pauses/resumes playback
+ Expo CLI
 
-Audio state is managed using Zustand store
+ Android Emulator or physical Android device
 
- How to Run the Project
-Prerequisites
-
-Node.js (v18+)
-
-Expo CLI
-
-Android Emulator or physical Android device
-
-Steps
-npm install
-npx expo start
+ Steps
+ npm install
+ npx expo start
 
 
-Then:
+ Then:
 
-Press a to run on Android emulator
+ Press a to run on Android emulator
 
-OR scan QR code using Expo Go app
+ OR scan QR code using Expo Go app
 
- Notes
+ 14. Notes
 
-This project is intended for learning and assignment purposes
+ This project is intended for learning and assignment purposes
 
-No backend server is used
+ No backend server is used
 
-Audio files are streamed from public URLs
+ The focus is on functionality, not advanced UI design
 
-The focus is on functionality, not advanced UI design
+ 15.Final Note
+
+ This submission focuses on engineering decisions, stability, and clarity under time constraints.
+ All limitations are documented transparently.
 
 
- Author
+ 16. Author
 
-B.Tech Final Year Student
-YALLA GNK SAI SUSHMA
+ B.Tech Final Year Student
+ YALLA GNK SAI SUSHMA
